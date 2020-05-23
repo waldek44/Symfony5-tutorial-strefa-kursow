@@ -13,3 +13,6 @@ Tworzę kontroler <b>IndexController</b> przy pomocy komendy
 ```
 php bin/console make:controller
 ```
+
+##### Przekazywznie zmiennej z kontrolera do widoku
+Przykład przekazania zmiennej i listy z IndexControllera do widoku

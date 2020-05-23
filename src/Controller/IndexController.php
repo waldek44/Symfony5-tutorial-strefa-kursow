@@ -12,8 +12,16 @@ class IndexController extends AbstractController
      */
     public function index()
     {
+        $randomNumber = rand(0, 100);
+
+        $numbers = [
+            'first' => 1,
+            'second' => 2,
+            'third' => 3,
+        ];
         return $this->render('index/index.html.twig', [
-            'controller_name' => 'Kontroler dla index',
+            'randomka' => $randomNumber,
+            'listaNumerow' => $numbers,
         ]);
     }
 }
