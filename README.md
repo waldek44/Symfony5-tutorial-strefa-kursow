@@ -67,3 +67,19 @@ php bin/console make:migration
 ```
 php bin/console doctrine:migrations:migrate
 ```
+
+### 5. Budowanie widoku strony głównej
+1. Pobieram bootstrap i jquery  
+2. W katalogu public tworzę katalog assets, w nim katalogi css, images i js - wrzucam do nich bootstrap i jquery  
+3. W <b>base.html.twig</b> dodaję linki do styli za pomocą funkcji asset()
+4. Linki do stron dodaję funkcją path()
+
+##### Nawigacja witryny
+Dodaję nawigację w <b>base.html.twig</b>  
+
+Zapis który pozwala mi stylować aktywny link, korzysta ze zmiennej globalnej app:
+```
+{% if app.request.get('_route') == 'index' %}active{% endif %}
+```
+> if obecny route == index to dodaj klasę active do stylu
+

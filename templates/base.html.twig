@@ -3,10 +3,110 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Hosting zdjęć -{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}" />    
+        {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        <!--NAV-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="{{ path('index') }}">Uploader</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarColor02">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link  {% if app.request.get('_route') == 'index' %}active{% endif %} "  href="{{ path('index') }}">Strona główna</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link"  href="#">Moje zdjęcia</a>
+                        </li>
+                            <li class="nav-item">
+                                <a class="nav-link"  href="#">Wyloguj się</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link"  href="#">Zaloguj się</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Zarejestruj się</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!--NAV-->
+
+        {% block content %}  
+        {% endblock %}
+
+        <!-- FOOTER -->
+        <section class="bg-dark" style="height: 100%">
+            <div class="container text-white">
+                <h3 class="text-center text-white h1 font-weight-lighter" style="padding-top: 120px;">Dane w chmurze</h3>
+                <p class="pt-5 pb-5 font-weight-lighter text-center">Twoje zdjęcia będą dostępne w chmurze dopóki ich nie usuniesz. Pamiętaj, że masz do nich dostęp z każdego miejsca na ziemi. Po zalogowaniu się masz pełny dostęp do swoich danych oraz zdjęć.</p>
+                <div class="row pt-5" style="padding-bottom: 120px;">
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="member">
+                            <div class="member-info">
+                                <div class="member-info-content">
+                                    <h4>1. Zarejestruj się</h4>
+                                    <span>Najpierw załóż konto w serwisie</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="member">
+                            <div class="member-info">
+                                <div class="member-info-content">
+                                    <h4>2. Zaloguj się</h4>
+                                    <span>Nastepnie zaloguj się podanymi danymi podczas rejestracji</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="member">
+                            <div class="member-info">
+                                <div class="member-info-content">
+                                    <h4>3. Dodaj zdjęcie</h4>
+                                    <span>Dodaj prywatne lub publiczne</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="member">
+                            <div class="member-info">
+                                <div class="member-info-content">
+                                    <h4>4. Oglądaj zdjęcia</h4>
+                                    <span>Oglądaj wszystkie publiczne zdjęcia lub swoje prywatne</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+        <!-- FOOTER -->
+
+
+        {% block javascripts %}
+            <script src="{{ asset('assets/js/jquery-3.4.1.slim.min.js') }}"></script>
+            <script src="{{ asset('assets/js/popper.min.js') }}"></script>
+            <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+            <script src="{{ asset('assets/js/simpleLightbox.min.js') }}"></script>
+            <script src="{{ asset('assets/js/scripts.js') }}"></script>
+        {% endblock %}
     </body>
 </html>
