@@ -83,3 +83,13 @@ Zapis który pozwala mi stylować aktywny link, korzysta ze zmiennej globalnej a
 ```
 > if obecny route == index to dodaj klasę active do stylu
 
+### 6. Autoryzacja użytkownika
+
+##### Dodanie formularza logowania
+Automatyczne generowanie kodu odpowiedzialnego za autoryzację użytkownika dzięki SecurityBundle:
+```
+php bin/console make:auth
+```
+
+
+
