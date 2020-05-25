@@ -91,5 +91,22 @@ Automatyczne generowanie kodu odpowiedzialnego za autoryzację użytkownika dzi�
 php bin/console make:auth
 ```
 
+##### Data Fixtures
+> Data Fixtures to skrypty które ładują zaprogramowane dane aby przekazały się do bazy danych po wywołaniu komendy
 
+1. Najpierw doinstalowuję pakiet orm-fixtures
+```
+composer require orm-fixtures --dev
+```
 
+2. Tworzę fixtures o nazwie UserFixtures (tworzy się też z automatu AppFixtures - mogę go usunąć)
+```
+php bin/console make:fixtures
+``` 
+
+3. Po zmodyfikowaniu fixtures uploaduję je do db:
+```
+doctrine:fixtures:load
+``` 
+
+4. zmieniam przekierowanie po udanym logowaniu w <b>security/LoginFormAuthenticator.php</b>
