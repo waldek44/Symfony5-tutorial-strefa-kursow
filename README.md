@@ -110,3 +110,15 @@ doctrine:fixtures:load
 ``` 
 
 4. zmieniam przekierowanie po udanym logowaniu w <b>security/LoginFormAuthenticator.php</b>
+
+
+##### Formularz rejestracji
+
+```
+php bin/console make:registration-form
+```
+
+> Ok, teraz aby ostylować formularz rejestracji wpisuję w googlu: form themes symfony 5  
+> W dokumentacji symfony mam podpowiedzi jak ostylować formularze globalnie w config/packages/twig.yaml lub lokalnie w twigu
+
+
