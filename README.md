@@ -121,4 +121,7 @@ php bin/console make:registration-form
 > Ok, teraz aby ostylować formularz rejestracji wpisuję w googlu: form themes symfony 5  
 > W dokumentacji symfony mam podpowiedzi jak ostylować formularze globalnie w config/packages/twig.yaml lub lokalnie w twigu
 
+##### Role użytkowników i uprawnienia aplikacji
 
+W <b>base.html.twig</b> linkuję logowania
+W <b>RegistrationController.php</b> dodaję ifa który zapewni przekierowanie na index jak zalogowany użytkownik wejdzie na /register
