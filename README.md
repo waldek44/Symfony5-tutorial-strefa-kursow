@@ -126,7 +126,7 @@ php bin/console make:registration-form
 W <b>base.html.twig</b> linkuję logowania
 W <b>RegistrationController.php</b> dodaję ifa który zapewni przekierowanie na index jak zalogowany użytkownik wejdzie na /register
 
-### Uploader zdjęć
+### 7. Uploader zdjęć
 
 ##### Formularz do wysyłania zdjęcia
 1. Tworzę nowy formularz:
@@ -137,6 +137,7 @@ php bin/console make:form
 
 2. W <b>IndexController.php</b> dodaję zmienną formularza i przekazuję ją do twiga, w <b>index.html.twig</b> renderuję ten form
 
-
+##### Obsługa formularza w kontrolerze
+W <b>IndexController.php</b> implementuję funkcjonalność zapisywania pliku do bazy danych po wysłaniu formularza za pomocą POST (przez zalogowanego użytkownika).
 
 
