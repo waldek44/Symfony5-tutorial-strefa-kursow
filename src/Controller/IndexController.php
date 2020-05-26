@@ -26,14 +26,25 @@ class IndexController extends AbstractController
 
                 // sprawdzam czy użytkownik jest zalogowany 
                 if($this->getUser()) {
-                    $entityPhotos = new Photo();
-                    $entityPhotos->setFilename($form->get('filename')->getData());
-                    $entityPhotos->setIsPublic($form->get('is_public')->getData());
-                    $entityPhotos->setUploadedAt(new \DateTime());
-                    $entityPhotos->setUser($this->getUser());
+                    $pictureFileName = $form->get('filename')->getData();
+                        if($pictureFileName) {
+                            $originalFileName = pathinfo($pictureFileName->getClientOriginalName(), PATHINFO_FILENAME);
+                            $safeFileName = transliterator_transliterate('Any-Latin; Latin-ASCII; [^A-Za-z0-9_] remove; Lower()', $originalFileName);
+                            $newFileName = $safeFileName.'-'.uniqid().'.'.$pictureFileName->guessExtension();
+                            // żeby zapisał go w folderze public/images/hosting
+                            $pictureFileName->move('images/hosting', $newFileName);
+                        
+                            $entityPhotos = new Photo();
+                            $entityPhotos->setFilename($newFileName);
+                            $entityPhotos->setIsPublic($form->get('is_public')->getData());
+                            $entityPhotos->setUploadedAt(new \DateTime());
+                            $entityPhotos->setUser($this->getUser());
 
-                    $em->persist($entityPhotos);
-                    $em->flush();
+                            $em->persist($entityPhotos);
+                            $em->flush();
+                        }
+
+
                 }
             }
 

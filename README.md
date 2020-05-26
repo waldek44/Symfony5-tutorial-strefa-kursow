@@ -140,4 +140,6 @@ php bin/console make:form
 ##### Obsługa formularza w kontrolerze
 W <b>IndexController.php</b> implementuję funkcjonalność zapisywania pliku do bazy danych po wysłaniu formularza za pomocą POST (przez zalogowanego użytkownika).
 
-
+##### Wgrywanie zdjęć do folderu
+1. Tworzę katalog <b>public/images/hosting</b>
+2. W <b>IndexController.php</b> dodaję logikę która wysyła zdjęcie do tego folderu
